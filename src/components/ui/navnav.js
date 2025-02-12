@@ -1,5 +1,4 @@
 'use client'
-import { useState } from 'react';
 import { Atom, Book, FlaskConical, Home, MenuIcon, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCallback } from 'react';
