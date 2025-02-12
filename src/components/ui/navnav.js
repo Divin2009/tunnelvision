@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { Atom, Book, FlaskConical, Home, MenuIcon } from "lucide-react";
+import { Atom, Book, FlaskConical, Home, MenuIcon, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCallback } from 'react';
 import { redirect } from 'next/navigation';
@@ -48,6 +48,13 @@ export default function NavNav() {
               >
                 <FlaskConical className="mr-2 h-4 w-4" /> Experiments
               </Button>
+              <Button 
+                variant="ghost" 
+                className="text-purple-200 hover:text-white hover:bg-purple-900/50" 
+                onClick={() => open("https://tunnelvisionml-jqfdwuw9q3snfg6se85gbu.streamlit.app/")}
+              >
+                <Crown className="mr-2 h-4 w-4" /> Streamlit
+              </Button>
             </div>
           </div>
           {/* Mobile menu button */}
@@ -59,6 +66,40 @@ export default function NavNav() {
             >
               <MenuIcon className="h-6 w-6" />
             </Button>
+            {isMenuOpen && (
+              <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-black/95 backdrop-blur-md border border-purple-500/20">
+                <div className="py-2 space-y-1">
+                  <Button 
+                    variant="ghost" 
+                    className="w-full text-purple-200 hover:text-white hover:bg-purple-900/50 px-4"
+                    onClick={() => handleNavigation('/')}
+                  >
+                    <Home className="mr-2 h-4 w-4 inline" /> Home
+                  </Button>
+                  <Button 
+                    variant="ghost" 
+                    className="w-full text-purple-200 hover:text-white hover:bg-purple-900/50 px-4"
+                    onClick={() => handleNavigation('/learn')}
+                  >
+                    <Book className="mr-2 h-4 w-4 inline" /> Learn
+                  </Button>
+                  <Button 
+                    variant="ghost" 
+                    className="w-full text-purple-200 hover:text-white hover:bg-purple-900/50 px-4"
+                    onClick={() => handleNavigation('/experiments')}
+                  >
+                    <FlaskConical className="mr-2 h-4 w-4 inline" /> Experiments
+                  </Button>
+                  <Button 
+                    variant="ghost" 
+                    className="w-full text-purple-200 hover:text-white hover:bg-purple-900/50 px-4"
+                    onClick={() => open('https://tunnelvisionml-jqfdwuw9q3snfg6se85gbu.streamlit.app/')}
+                  >
+                    <Crown className="mr-2 h-4 w-4 inline" /> Streamlit App
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
