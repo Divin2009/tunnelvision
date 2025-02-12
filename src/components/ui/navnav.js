@@ -6,14 +6,7 @@ import { useCallback } from 'react';
 import { redirect } from 'next/navigation';
 
 export default function NavNav() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   const handleNavigation = useCallback((path) => {
-    setIsMenuOpen(false);
     redirect(path);
   }, []);
 
@@ -56,50 +49,6 @@ export default function NavNav() {
                 <Crown className="mr-2 h-4 w-4" /> Streamlit
               </Button>
             </div>
-          </div>
-          {/* Mobile menu button */}
-          <div className="md:hidden relative">
-            <Button 
-              variant="ghost" 
-              className="text-purple-200 hover:text-white hover:bg-purple-900/50"
-              onClick={toggleMenu}
-            >
-              <MenuIcon className="h-6 w-6" />
-            </Button>
-            {isMenuOpen && (
-              <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-black/95 backdrop-blur-md border border-purple-500/20">
-                <div className="py-2 space-y-1">
-                  <Button 
-                    variant="ghost" 
-                    className="w-full text-purple-200 hover:text-white hover:bg-purple-900/50 px-4"
-                    onClick={() => handleNavigation('/')}
-                  >
-                    <Home className="mr-2 h-4 w-4 inline" /> Home
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    className="w-full text-purple-200 hover:text-white hover:bg-purple-900/50 px-4"
-                    onClick={() => handleNavigation('/learn')}
-                  >
-                    <Book className="mr-2 h-4 w-4 inline" /> Learn
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    className="w-full text-purple-200 hover:text-white hover:bg-purple-900/50 px-4"
-                    onClick={() => handleNavigation('/experiments')}
-                  >
-                    <FlaskConical className="mr-2 h-4 w-4 inline" /> Experiments
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    className="w-full text-purple-200 hover:text-white hover:bg-purple-900/50 px-4"
-                    onClick={() => open('https://tunnelvisionml-jqfdwuw9q3snfg6se85gbu.streamlit.app/')}
-                  >
-                    <Crown className="mr-2 h-4 w-4 inline" /> Streamlit App
-                  </Button>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
