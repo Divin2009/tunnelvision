@@ -51,7 +51,7 @@ export default function NavNav() {
               <Button 
                 variant="ghost" 
                 className="text-purple-200 hover:text-white hover:bg-purple-900/50" 
-                onClick={() => open("https://tunnelvisionml-jqfdwuw9q3snfg6se85gbu.streamlit.app/")}
+                onClick={() => open("https://tunnelvisionanalytics.streamlit.app/")}
               >
                 <Crown className="mr-2 h-4 w-4" /> Streamlit
               </Button>
@@ -98,7 +98,7 @@ export default function NavNav() {
             <Button 
               variant="ghost" 
               className="w-full text-purple-200 hover:text-white hover:bg-purple-900/50 justify-start"
-              onClick={() => open('https://tunnelvisionml-jqfdwuw9q3snfg6se85gbu.streamlit.app/')}
+              onClick={() => open('https://tunnelvisionanalytics.streamlit.app/')}
             >
               <Crown className="mr-2 h-4 w-4" /> Streamlit App
             </Button>
