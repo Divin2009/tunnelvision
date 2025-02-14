@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { Atom, Book, FlaskConical, Home, MenuIcon, Crown } from "lucide-react";
+import { Atom, Book, FlaskConical, Home, MenuIcon, Crown, Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCallback } from 'react';
 import { redirect } from 'next/navigation';
@@ -50,6 +50,11 @@ export default function NavNav() {
               </Button>
               <Button 
                 variant="ghost" 
+                className="text-purple-200 hover:text-white hover:bg-purple-900/50">
+                <Box className="mr-2 h-4 w-4" /> <a href='/3D_Model'>3D Model</a>
+              </Button>
+              <Button 
+                variant="ghost" 
                 className="text-purple-200 hover:text-white hover:bg-purple-900/50" 
                 onClick={() => open("https://tunnelvisionanalytics.streamlit.app/")}
               >
@@ -94,6 +99,11 @@ export default function NavNav() {
               onClick={() => handleNavigation('/experiments')}
             >
               <FlaskConical className="mr-2 h-4 w-4" /> Experiments
+            </Button>
+            <Button 
+                variant="ghost" 
+                className="w-full text-purple-200 hover:text-white hover:bg-purple-900/50 justify-start">
+                <Box className="mr-2 h-4 w-4" /> <a href='/3D_Model'>3D Model</a>
             </Button>
             <Button 
               variant="ghost" 

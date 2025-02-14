@@ -3,7 +3,11 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import NavNav from "@/components/ui/navnav";
 import { Card } from "@/components/ui/card";
-import { ArrowDown, Atom, Brain, Sparkles, Zap } from "lucide-react";
+import { ArrowDown, Atom, Brain, Sparkles, Zap, Waves, Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { redirect } from 'next/navigation';
+import { Label } from '@/components/ui/label';
+import Link from 'next/link';
 
 export default function LearnPage() {
   const containerRef = useRef(null);
@@ -166,7 +170,67 @@ export default function LearnPage() {
       {/* Main Content */}
       <div className="relative z-10 pb-20">
         {/* Introduction Section */}
-        <section className="min-h-screen flex items-center py-20">
+        <section className="relative z-10 py-20 bg-black/40">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-12"
+          >
+            <h2 className="text-4xl md:text-6xl font-bold text-purple-300 text-center mb-12">
+              Key Quantum Concepts
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                className="relative group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <Card className="relative bg-black/60 border-purple-500/30 p-8 backdrop-blur-sm overflow-hidden">
+                  <div className="flex items-center space-x-4 mb-6">
+                    <Shield className="h-12 w-12 text-purple-400" />
+                    <h3 className="text-3xl font-bold text-purple-300">Quantum Tunneling</h3>
+                  </div>
+                  <p className="text-purple-200 text-lg leading-relaxed">
+                    A quantum phenomenon where particles penetrate through potential barriers that 
+                    they classically couldn't overcome. This occurs because quantum objects behave 
+                    as waves, allowing them to "tunnel" through barriers with a certain probability, 
+                    even when they lack the energy to pass over them.
+                  </p>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                className="relative group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <Card className="relative bg-black/60 border-purple-500/30 p-8 backdrop-blur-sm overflow-hidden">
+                  <div className="flex items-center space-x-4 mb-6">
+                    <Waves className="h-12 w-12 text-purple-400" />
+                    <h3 className="text-3xl font-bold text-purple-300">Quantum Noise</h3>
+                  </div>
+                  <p className="text-purple-200 text-lg leading-relaxed">
+                    Random fluctuations in measurements at the quantum level, arising from the 
+                    fundamental uncertainty in quantum systems. This inherent "noise" is not due 
+                    to imperfect measurements but is a fundamental feature of quantum mechanics, 
+                    affecting everything from particle positions to energy levels.
+                  </p>
+                </Card>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      <section className="min-h-screen flex items-center py-20">
           <div className="max-w-7xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0 }}
@@ -200,7 +264,6 @@ export default function LearnPage() {
             </motion.div>
           </div>
         </section>
-
         {/* Interactive Visualization */}
         <section className="min-h-screen bg-black/30 py-20">
           <div className="max-w-7xl mx-auto px-4">
@@ -241,11 +304,9 @@ export default function LearnPage() {
                     exit={{ opacity: 0 }}
                   />
                 ))}
-
                 {/* Quantum effect overlay */}
                 <div className="absolute inset-0 bg-gradient-radial from-transparent to-purple-900/20" />
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                 <Card className="bg-black/40 border-purple-500/30 p-6 hover:scale-105 transition-transform duration-300">
                   <Atom className="h-8 w-8 text-purple-400 mb-4" />
@@ -272,7 +333,6 @@ export default function LearnPage() {
             </motion.div>
           </div>
         </section>
-
         {/* Applications Section */}
         <section className="min-h-screen py-20">
           <div className="max-w-7xl mx-auto px-4">
