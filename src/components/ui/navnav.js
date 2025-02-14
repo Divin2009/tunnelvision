@@ -51,7 +51,7 @@ export default function NavNav() {
               <Button 
                 variant="ghost" 
                 className="text-purple-200 hover:text-white hover:bg-purple-900/50">
-                <Box className="mr-2 h-4 w-4" /> <a href='/3D_Model'>3D Model</a>
+                <Box className="mr-2 h-4 w-4" /> <a href='/tunnelvision/3D_Model'>3D Model</a>
               </Button>
               <Button 
                 variant="ghost" 
@@ -103,7 +103,7 @@ export default function NavNav() {
             <Button 
                 variant="ghost" 
                 className="w-full text-purple-200 hover:text-white hover:bg-purple-900/50 justify-start">
-                <Box className="mr-2 h-4 w-4" /> <a href='/3D_Model'>3D Model</a>
+                <Box className="mr-2 h-4 w-4" /> <a href='/tunnelvision/3D_Model'>3D Model</a>
             </Button>
             <Button 
               variant="ghost" 
